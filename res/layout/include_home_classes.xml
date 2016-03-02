@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- 头部导航 -->
+
+
+    <!-- 分类 ,屏幕可下拉刷新 -->
+
+    <LinearLayout
+        android:id="@+id/home_classes_globleLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_gray"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/sv_home_sc"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:id="@+id/ll_"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:scrollbars="vertical" >
+
+                <!-- 团购分类 -->
+
+                <LinearLayout
+                    android:id="@+id/view_pager_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="170dp"
+                    android:orientation="vertical"
+                    android:background="#ffffff" >
+
+<!--                     <GridView -->
+<!--                         android:id="@+id/gv_home_classes" -->
+<!--                         android:layout_width="fill_parent" -->
+<!--                         android:layout_height="wrap_content" -->
+<!--                         android:layout_marginLeft="5dip" -->
+<!--                         android:layout_marginRight="5dip" -->
+<!--                         android:layout_marginTop="10dip" -->
+<!--                         android:horizontalSpacing="10dip" -->
+<!--                         android:listSelector="@color/bg_gray" -->
+<!--                         android:numColumns="5" -->
+<!--                         android:scrollbars="none" -->
+<!--                         android:verticalSpacing="10dip" /> -->
+
+                </LinearLayout>
+                
+                <!-- 圆点内容 -->
+
+                <LinearLayout
+                    android:id="@+id/viewGroup"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view_pager_content"
+                    android:layout_marginTop="-25px"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp" />
+
+                <!-- 团购内容 -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="20dip"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="猜你喜欢" />
+
+                    <TextView
+                        android:id="@+id/tv_load_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="正在努力加载中" />
+
+                    <ListView
+                        android:id="@+id/lv_like_shop"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_marginTop="5dip"
+                        android:background="@color/bg_gray"
+                        android:cacheColorHint="#00000000"
+                        android:listSelector="#00000000" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

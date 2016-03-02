@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_home_titlebar" />
+
+    <!-- 首页的分类 -->
+
+    <include layout="@layout/include_home_classes" />
+
+    
+<!--     <LinearLayout -->
+<!--         android:id="@+id/view_pager_content" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:orientation="vertical" /> -->
+
+<!--     <LinearLayout -->
+<!--         android:id="@+id/viewGroup" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/view_pager_content" -->
+<!--         android:layout_marginTop="-25px" -->
+<!--         android:gravity="center_horizontal" -->
+<!--         android:orientation="horizontal" -->
+<!--         android:paddingLeft="10dp" /> -->
+    
+
+</LinearLayout>
