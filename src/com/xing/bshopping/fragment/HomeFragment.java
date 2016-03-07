@@ -6,27 +6,43 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.xing.bshopping.BaseFragment;
 import com.xing.bshopping.R;
+import com.xing.bshopping.activity.SearchActivity;
+import com.xing.bshopping.activity.TuanDailActivity;
 import com.xing.bshopping.adapter.ClassesAdapter;
 import com.xing.bshopping.adapter.ClassesPageAdapter;
+import com.xing.bshopping.adapter.GoodsInfoAdapter;
+import com.xing.bshopping.entity.GoodsInfo;
+import com.xing.bshopping.utils.TitleBuilder;
+import com.xing.bshopping.utils.ToastUtils;
+import com.xing.bshopping.widget.MeiTuanListView;
+import com.xing.bshopping.widget.MeiTuanListView.OnMeiTuanRefreshListener;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements
+		OnMeiTuanRefreshListener {
 
 	private View view;
 
+	// ==================分类的tab================
 	private LinearLayout view_pager_content;
 	private LinearLayout viewGroup;
 
@@ -40,21 +56,142 @@ public class HomeFragment extends BaseFragment {
 	private AtomicInteger atomicInteger = new AtomicInteger(0);
 	private List<View> gridViewlist = new ArrayList<View>();
 
-	// ====================================
+	// ==================下拉刷新的动画==================
+	private static MeiTuanListView mListView;
+
+	// =======================商品列表的listview======================
+	private static GoodsInfoAdapter goodsInfoAdapter;
+	private List<GoodsInfo> goodsInfoList = null;
+
+	// private List<String> mDatas;
+	// private static ArrayAdapter<String> mAdapter;
+	private final static int REFRESH_COMPLETE = 0;
+
+	/**
+	 * mInterHandler运行在主线程，因为setOnRefreshComplete需要改变ui，必须在主线程去改变ui
+	 * 所以在handleMessage中调用mListView.setOnRefreshComplete();
+	 */
+	private InterHandler mInterHandler = new InterHandler();
+
+	private static class InterHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case REFRESH_COMPLETE:
+				mListView.setOnRefreshComplete();
+				goodsInfoAdapter.notifyDataSetChanged();
+				mListView.setSelection(0);
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
+		view = View.inflate(activity, R.layout.frag_home, null);
+
 		// initCategory();
 		initView();
 
-		
+		new TitleBuilder(view).setLeftText("珠海")
+				.setLeftOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						ToastUtils.showToast(activity, "珠海", 1);
+					}
+				}).setTitleImage(R.drawable.home_top_search)
+				.setRightImage1(R.drawable.actionbar_icon_msg)
+				.setRightImage2(R.drawable.actionbar_icon_scan)
+				.setRightOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						ToastUtils.showToast(activity, "Geek!!", 1);
+
+					}
+				}, R.id.titlebar_iv2_right)
+				.setRightOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						ToastUtils.showToast(activity, "Dan!!", 1);
+					}
+				}, R.id.titlebar_iv1_right)
+				.setTitleOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+
+						Intent intent = new Intent(activity, SearchActivity.class);
+						startActivity(intent);
+						
+					}
+				}).build();
+
 		return view;
 	}
 
 	private void initView() {
-		view = View.inflate(activity, R.layout.frag_home, null);
+
+		// =================下拉刷新的动画=================
+		mListView = (MeiTuanListView) view
+				.findViewById(R.id.listview_like_shop);
+
+		View HeaderView = View.inflate(activity, R.layout.home_gridview_class,
+				null);
+		View FooterView = View.inflate(activity, R.layout.include_footer_view,
+				null);
+		mListView.addHeaderView(HeaderView);
+		mListView.addFooterView(FooterView);
+
+		// String[] data = new String[] { "hello world", "hello world",
+		// "hello world", "hello world", "hello world", "hello world",
+		// "hello world", "hello world", "hello world", "hello world",
+		// "hello world", "hello world", "hello world", "hello world", };
+		// mDatas = new ArrayList<String>(Arrays.asList(data));
+		goodsInfoList = new ArrayList<GoodsInfo>();
+
+		goodsInfoList.add(new GoodsInfo(1, "五洲佳肴自助美食汇",
+				"【井岸镇】自助晚餐/韩式烤肉2选1，提供免费wifi，免预约", 44.8f, 58.0f, true,
+				"http://pic10.nipic.com/20101010/5713677_174509363484_2.jpg"));
+		goodsInfoList.add(new GoodsInfo(2, "【东莞】尼罗河酒店",
+				"美尼斯西餐厅单人自助晚餐+巴比伦国际水会单人净桑券", 118f, 158f, false,
+				"http://p0.meituan.net/320.0.a/deal/__49603001__8471795.jpg.webp"));
+		goodsInfoList.add(new GoodsInfo(3, "【东莞】铂尔曼酒店",
+				"东莞旗峰山铂尔曼酒店莱斯西餐厅自助午餐", 178f, 220.5f, true,
+				"http://p0.meituan.net/320.0.a/deal/__44947301__3591238.jpg.webp"));
+		goodsInfoList.add(new GoodsInfo(3, "【东莞等】汤响自助回转火锅百汇",
+				"单人自助火锅午餐，提供免费WiFi", 39f, 49f, true,
+				"http://p1.meituan.net/320.0.a/deal/4f55d98401c512c36a9870dc3c0dafd3369013.jpg.webp"));
+		
+		// mAdapter = new ArrayAdapter<String>(activity,
+		// android.R.layout.simple_list_item_1, mDatas);
+		goodsInfoAdapter = new GoodsInfoAdapter(activity, goodsInfoList);
+		mListView.setAdapter(goodsInfoAdapter);
+		mListView.setOnMeiTuanRefreshListener(this);
+		
+		mListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				GoodsInfo goodsInfo = goodsInfoAdapter.getItem(position-2);
+				Intent intent = new Intent(activity, TuanDailActivity.class);
+				intent.putExtra("goodsInfo", goodsInfo);
+				startActivity(intent);
+				
+//				ToastUtils.showToast(activity, goodsInfo+"", 1);
+			}
+			
+		});
+
+		// ================左右滑动的分类tab================
 
 		view_pager_content = (LinearLayout) view
 				.findViewById(R.id.view_pager_content);
@@ -84,19 +221,6 @@ public class HomeFragment extends BaseFragment {
 		adViewPager.setOnPageChangeListener(new AdPageChangeListener());
 
 	}
-
-	/*
-	 * 每隔固定时间切换广告栏图片
-	 */
-	// private final Handler handler = new Handler() {
-	//
-	// public void handleMessage(android.os.Message msg) {
-	// System.out.println("handleMessage");
-	// adViewPager.setCurrentItem(msg.what);
-	// super.handleMessage(msg);
-	// };
-	//
-	// };
 
 	/**
 	 * ViewPager 页面改变监听器
@@ -132,10 +256,10 @@ public class HomeFragment extends BaseFragment {
 			// 重新设置原点布局集合
 			for (int i = 0; i < imageViews.length; i++) {
 				imageViews[arg0]
-						.setBackgroundResource(R.drawable.point_focused);
+						.setBackgroundResource(R.drawable.mtadvert_indicator_selected);
 				if (arg0 != i) {
 					imageViews[i]
-							.setBackgroundResource(R.drawable.point_unfocused);
+							.setBackgroundResource(R.drawable.mtadvert_indicator_normal);
 				}
 			}
 
@@ -161,9 +285,11 @@ public class HomeFragment extends BaseFragment {
 
 			// 初始值, 默认第0个选中
 			if (i == 0) {
-				imageViews[i].setBackgroundResource(R.drawable.point_focused);
+				imageViews[i]
+						.setBackgroundResource(R.drawable.mtadvert_indicator_selected);
 			} else {
-				imageViews[i].setBackgroundResource(R.drawable.point_unfocused);
+				imageViews[i]
+						.setBackgroundResource(R.drawable.mtadvert_indicator_normal);
 			}
 			// 将小圆点放入到布局中
 			viewGroup.addView(imageViews[i]);
@@ -181,13 +307,13 @@ public class HomeFragment extends BaseFragment {
 				R.drawable.ic_category_10, R.drawable.ic_category_11,
 				R.drawable.ic_category_14, R.drawable.ic_category_7,
 				R.drawable.ic_category_9, R.drawable.ic_category_12,
-				R.drawable.ic_category_13, R.drawable.ic_category_8 ,
-				R.drawable.ic_category_16};
+				R.drawable.ic_category_13, R.drawable.ic_category_8,
+				R.drawable.ic_category_16
 
-		String[] titleView = { 
-				"美食", "电影", "酒店", "KTV", "今日新单", 
-				"周边游", "代金券","休闲娱乐", "丽人", "购物", 
-				"小吃快餐", "生活服务", "足疗按摩", "旅游", "蛋糕甜点",
+		};
+
+		String[] titleView = { "美食", "电影", "酒店", "KTV", "今日新单", "周边游", "代金券",
+				"休闲娱乐", "丽人", "购物", "小吃快餐", "生活服务", "足疗按摩", "旅游", "蛋糕甜点",
 				"全部分类"
 
 		};
@@ -256,6 +382,29 @@ public class HomeFragment extends BaseFragment {
 			}
 			classesPageAdapter = new ClassesPageAdapter(gridViewlist);
 		}
+	}
+
+	@Override
+	public void onRefresh() {
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(3000);
+					goodsInfoList
+							.add(0,
+									new GoodsInfo(4, "【东莞】汇美酒店", "单人自助晚餐88元，提供免费WiFi",
+											88f, 108f, false,
+											"http://p1.meituan.net/320.0.a/deal/__29406384__9346162.jpg.webp"));
+
+					mInterHandler.sendEmptyMessage(REFRESH_COMPLETE);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}).start();
 	}
 
 }

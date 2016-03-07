@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_user_gray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:text="商家信息"
+                android:textColor="@color/bg_gray_ccc"
+                android:textSize="@dimen/home_txtmediumtitlesize" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_gray" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+       
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tuandail_content_goodsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="五洲佳肴自助美食汇"
+            android:textSize="@dimen/home_txttitlesize" />
+
+        <TextView
+           
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="斗门区井岸镇中兴中路222号东北(南国4楼)"
+             android:layout_marginBottom="10dp"
+            android:textColor="@color/bg_gray_ccc"
+            android:textSize="@dimen/home_txtmediumtitlesize" />
+    </LinearLayout>
+     <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_gray" />
+        
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:text="购买须知"
+                android:textColor="@color/bg_gray_ccc"
+                android:textSize="@dimen/home_txtmediumtitlesize" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="有效期："
+            android:textColor="@color/orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="2014.10.31 至 2016.3.26（周末、法定节假日通用）" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="使用规则"
+            android:textColor="@color/orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="无需预约，消费高峰时可能需要等位\n\n每张美团券最多1位成人使用，身高1.4米以上儿童计入人数\n\n1.1米（含）以下儿童免费，需1名家长陪同，1.1（含）-1.4（含）米30元/位，1.4米以上按照成人收费\n\n每桌剩餐超200g以上需加收美团价的50%；每超过1小时加收美团价的50%；每瓶啤酒剩余半瓶以上加收5元/人的成本费\n勤拿少取，爱惜粮食，愉快用餐\n团购用户不可同时享受商家其他优惠\n\n部分菜品因时令原因有所不同，请以店内当日实际供应为准\n\n提供免费WiFi\n" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="无需预约，消费高峰时可能需要等位\n\n每张美团券最多1位成人使用，身高1.4米以上儿童计入人数\n\n1.1米（含）以下儿童免费，需1名家长陪同，1.1（含）-1.4（含）米30元/位，1.4米以上按照成人收费\n\n每桌剩餐超200g以上需加收美团价的50%；每超过1小时加收美团价的50%；每瓶啤酒剩余半瓶以上加收5元/人的成本费\n勤拿少取，爱惜粮食，愉快用餐\n团购用户不可同时享受商家其他优惠\n\n部分菜品因时令原因有所不同，请以店内当日实际供应为准\n\n提供免费WiFi\n" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="无需预约，消费高峰时可能需要等位\n\n每张美团券最多1位成人使用，身高1.4米以上儿童计入人数\n\n1.1米（含）以下儿童免费，需1名家长陪同，1.1（含）-1.4（含）米30元/位，1.4米以上按照成人收费\n\n每桌剩餐超200g以上需加收美团价的50%；每超过1小时加收美团价的50%；每瓶啤酒剩余半瓶以上加收5元/人的成本费\n勤拿少取，爱惜粮食，愉快用餐\n团购用户不可同时享受商家其他优惠\n\n部分菜品因时令原因有所不同，请以店内当日实际供应为准\n\n提供免费WiFi\n" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="无需预约，消费高峰时可能需要等位\n\n每张美团券最多1位成人使用，身高1.4米以上儿童计入人数\n\n1.1米（含）以下儿童免费，需1名家长陪同，1.1（含）-1.4（含）米30元/位，1.4米以上按照成人收费\n\n每桌剩餐超200g以上需加收美团价的50%；每超过1小时加收美团价的50%；每瓶啤酒剩余半瓶以上加收5元/人的成本费\n勤拿少取，爱惜粮食，愉快用餐\n团购用户不可同时享受商家其他优惠\n\n部分菜品因时令原因有所不同，请以店内当日实际供应为准\n\n提供免费WiFi\n" />
+        
+        
+    </LinearLayout>
+
+</LinearLayout>

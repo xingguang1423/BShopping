@@ -2,14 +2,155 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_gray"
+    android:background="@color/bg_user_gray"
     android:orientation="vertical" >
+
+    <!-- 标题栏 -->
 
     <include layout="@layout/include_titlebar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <!-- 用户头像 -->
+
+            <include layout="@layout/frag_user_head" />
+
+            <!-- 我的订单菜单栏 -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/bg_gray_dgray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/bg_gray_dgray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" >
+
+                    <ImageView
+                        android:id="@+id/iv_user_touphoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/order_all_order" />
+
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/iv_user_touphoto"
+                        android:text="我的订单"
+                        android:textSize="@dimen/home_txttitlesize" />
+
+                    <TextView
+                        android:id="@+id/tv_showallorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@id/iv_user_touphoto"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@drawable/ic_webview_bar_forward_normal"
+                        android:text="查看全部订单"
+                        android:textColor="@color/bg_gray_ccc"
+                        android:textSize="@dimen/home_txtmediumtitlesize" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/bg_gray_dgray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="4" >
+
+                    <TextView
+                        android:id="@+id/tv_user_order_unpaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/order_unpaid"
+                        android:gravity="center"
+                        android:text="待付款"
+                        android:textColor="@color/bg_gray_ccc" />
+
+                    <TextView
+                        android:id="@+id/tv_user_order_unused"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/order_unused"
+                        android:gravity="center"
+                        android:text="待使用"
+                        android:textColor="@color/bg_gray_ccc" />
+
+                    <TextView
+                        android:id="@+id/tv_user_order_needfeedback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/order_needfeedback"
+                        android:gravity="center"
+                        android:text="待评价"
+                        android:textColor="@color/bg_gray_ccc" />
+
+                    <TextView
+                        android:id="@+id/tv_user_order_refund"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/order_refund"
+                        android:gravity="center"
+                        android:text="退款/售后"
+                        android:textColor="@color/bg_gray_ccc" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 用户中的item -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divider_gray" />
+
+            <com.xing.bshopping.widget.WrapHeightListView
+                android:id="@+id/lv_user_items"
+                style="@style/ListViewCommon"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" >
+            </com.xing.bshopping.widget.WrapHeightListView>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

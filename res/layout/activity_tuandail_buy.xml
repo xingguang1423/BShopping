@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:text="￥"
+            android:textColor="@color/bshoppingcolor"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tuandail_buy_goodsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/price_txt"
+            android:text="44.8"
+            android:textColor="@color/bshoppingcolor"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/home_tv_goodsshopricetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tuandail_buy_goodsPrice"
+            android:text="门市价：￥"
+            android:textColor="@color/bg_gray_ccc"
+            android:textSize="@dimen/home_txtmediumtitlesize" />
+
+        <TextView
+            android:id="@+id/tuandail_buy_goodsShopPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/home_tv_goodsshopricetxt"
+            android:text="58"
+            android:textColor="@color/bg_gray_ccc"
+            android:textSize="@dimen/home_txtmediumtitlesize" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/hotel_bg_map_tip"
+            android:text="立即抢购"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_gray" />
+
+</LinearLayout>

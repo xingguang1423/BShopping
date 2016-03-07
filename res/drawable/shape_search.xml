@@ -3,16 +3,16 @@
     android:color="#0E9183" >
 
     <!-- 圆角 -->
-  	<corners android:bottomLeftRadius="20dp"
-  	    android:bottomRightRadius="20dp"
-  	    android:radius="20dp"
-  	    android:topLeftRadius="20dp"
-  	    android:topRightRadius="20dp"
+  	<corners android:bottomLeftRadius="40dp"
+  	    android:bottomRightRadius="40dp"
+  	    android:radius="40dp"
+  	    android:topLeftRadius="40dp"
+  	    android:topRightRadius="40dp"
   	    />
   	
   	<solid 
   	    android:width="1dp"
-  	    android:color="#0E9183"
+  	    android:color="#E0E0E0"
   	    />
 
 </shape>

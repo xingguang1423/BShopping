@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical" >
+
+    <!-- 分类 ,屏幕可下拉刷新 -->
+
+    <ScrollView
+        android:id="@+id/sv_home_sc"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/home_gridview_class"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:scrollbars="vertical" >
+
+            <!-- 团购分类 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="185dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/view_pager_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="160dp"
+                    android:background="@color/white"
+                    android:orientation="vertical" >
+
+                    <!-- <GridView -->
+                    <!-- android:id="@+id/gv_home_classes" -->
+                    <!-- android:layout_width="fill_parent" -->
+                    <!-- android:layout_height="wrap_content" -->
+                    <!-- android:layout_marginLeft="5dip" -->
+                    <!-- android:layout_marginRight="5dip" -->
+                    <!-- android:layout_marginTop="10dip" -->
+                    <!-- android:horizontalSpacing="10dip" -->
+                    <!-- android:listSelector="@color/bg_gray" -->
+                    <!-- android:numColumns="5" -->
+                    <!-- android:scrollbars="none" -->
+                    <!-- android:verticalSpacing="10dip" /> -->
+
+                </LinearLayout>
+
+              
+
+                <LinearLayout
+                    android:id="@+id/viewGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divider_gray" />
+
+            <!-- 猜你喜欢内容 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/like_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_index_guess_like"
+                        android:drawablePadding="5dp"
+                        android:text="猜你喜欢" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider_gray" />
+
+                <!-- 猜你喜欢listview -->
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

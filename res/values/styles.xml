@@ -33,6 +33,13 @@
         <item name="android:textColor">@color/txt_black</item>
         <item name="android:textSize">@dimen/txtsize_subhead</item>
     </style>
+    
+    <style name="TextViewCaption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/txt_light_gray</item>
+        <item name="android:textSize">@dimen/txtsize_caption</item>
+    </style>
 
     <style name="TextViewTitle">
         <item name="android:layout_width">wrap_content</item>

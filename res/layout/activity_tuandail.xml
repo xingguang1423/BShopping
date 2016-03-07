@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_tuandail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_user_gray"
+    android:orientation="vertical" >
+
+    <include layout="@layout/activity_tuandail_titlebar" />
+
+    <com.xing.bshopping.widget.TuanDailScrollView
+        android:id="@+id/tuandail_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <include layout="@layout/activity_tuandail_include_head" />
+
+                <include
+                    android:id="@+id/rl_tuandail_buy"
+                    layout="@layout/activity_tuandail_buy" />
+
+                <include layout="@layout/activity_tuandail_content" />
+                
+            </LinearLayout>
+
+            <include
+                android:id="@+id/rl_tuandail_topbuy"
+                layout="@layout/activity_tuandail_buy_top" />
+        </FrameLayout>
+    </com.xing.bshopping.widget.TuanDailScrollView>
+
+</LinearLayout>

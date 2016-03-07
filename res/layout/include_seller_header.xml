@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" 
+    android:background="@color/white"
+    >
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/bg_gray"
+	    android:orientation="horizontal" >
+
+	    <TextView
+	        android:layout_width="200dip"
+	        android:layout_height="34dp"
+	        android:layout_marginLeft="10dip"
+	        android:layout_weight="0.63"
+	        android:maxLines="2"
+	        android:text="珠海斗门区新科一路珠海永前制冰有限公司[新科一路]附近" />
+
+	    <ImageView
+	        android:layout_marginRight="10dip"
+	        android:layout_width="20dip"
+	        android:layout_height="match_parent"
+	        android:src="@drawable/ic_refresh" />
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/searchbg"
+    android:orientation="vertical" >
+
+    <!-- 标题栏 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/searchtitlebg"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/titlebar_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/food_ic_actionbar_back" />
+
+        <EditText
+            android:id="@+id/titlebar_et_search"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/titlebar_iv_back"
+            android:background="@drawable/shape_search"
+            android:drawableLeft="@drawable/food_ic_actionbar_search"
+            android:drawablePadding="5dp"
+            android:hint="输入商家、品类、商圈"
+            android:singleLine="true"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical"
+            android:text="搜索"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_agray" />
+
+    <!-- 热门搜索 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:background="@color/search_gv_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_hotsearch_pager"
+            android:layout_width="fill_parent"
+            android:layout_height="170dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="热门搜索"
+                android:textColor="@color/bg_gray_ccc" />
+
+            <!-- <GridView -->
+            <!-- android:id="@+id/gv_home_classes" -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_marginLeft="5dip" -->
+            <!-- android:layout_marginRight="5dip" -->
+            <!-- android:layout_marginTop="10dip" -->
+            <!-- android:horizontalSpacing="10dip" -->
+            <!-- android:listSelector="@color/bg_gray" -->
+            <!-- android:numColumns="5" -->
+            <!-- android:scrollbars="none" -->
+            <!-- android:verticalSpacing="10dip" /> -->
+
+        </LinearLayout>
+
+        <!-- 圆点内容 -->
+
+        <LinearLayout
+            android:id="@+id/ll_search_viewGroup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_gray" />
+
+</LinearLayout>

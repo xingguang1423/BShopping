@@ -16,7 +16,8 @@ public class ClassesAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<Map<String, Object>> classesList;
-
+	
+	
 	public ClassesAdapter(Context context, List<Map<String, Object>> listgrid) {
 		this.context = context;
 		this.classesList = listgrid;
@@ -55,7 +56,7 @@ public class ClassesAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		getItem(position);
+//		getItem(position);
 
 		holder.iv_gridview_item_icon.setBackgroundResource(Integer
 				.parseInt(classesList.get(position).get("image").toString()));

@@ -21,10 +21,14 @@
     <color name="txt_light_gray">#898989</color>
 
     <color name="bg_gray">#f2f2f2</color>
+    <color name="bg_user_gray">#EDEDED</color>
     <color name="bg_gray_light">#fcfcfc</color>
     <color name="bg_gray_dark">#e8e8e8</color>
     <color name="bg_agray">#49dddddd</color>
     <color name="bg_gray_pressed">#e8e8e8</color>
+    <color name="bg_gray_ccc">#777</color>
+    <color name="bg_gray_dgray">#D5D7D7</color>
+    
     <color name="txt_at_blue">#507daf</color>
     <color name="bg_gray_bar">#f9f9f9</color>
     <color name="divider_gray">#d7d7d7</color>
@@ -36,8 +40,12 @@
     <color name="probottombg">#1E2126</color>
     
     
-    
-    <color name="bshoppingcolor">#27CDC0</color>
+    <!-- *************************me************************ -->
+    <color name="bshoppingcolor">#32B9AA</color>
+    <color name="searchbg">#EEEEEE</color>
+    <color name="searchtitlebg">#F9F9F9</color>
+    <color name="bshoppingbottom">#F5F5F5</color>
+    <color name="search_gv_bg">#F4F4F4</color>
     
     
     

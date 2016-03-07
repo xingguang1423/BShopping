@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rl_titlebar"
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:background="@color/bshoppingcolor"
@@ -66,7 +65,7 @@
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/titlebar_iv_search"
         android:padding="12dp"
-        android:src="@drawable/ic_action_favorite_off" />
+        android:src="@drawable/actionbar_icon_scan" />
 
     <ImageView
         android:id="@+id/titlebar_iv_msg_right"
@@ -75,7 +74,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:padding="12dp"
-        android:src="@drawable/ic_action_map" />
+        android:src="@drawable/actionbar_icon_msg" />
 
     <View
         android:layout_width="match_parent"

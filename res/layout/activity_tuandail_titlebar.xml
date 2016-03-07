@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_tuandail_titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/searchtitlebg" >
+
+    <TextView
+        android:id="@+id/titlebar_tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawableLeft="@drawable/hotel_flight_icon_back"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="团购详情"
+        android:textSize="@dimen/txtsize_subhead" />
+
+    <ImageView
+        android:id="@+id/titlebar_iv1_right"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_action_favorite_off" />
+
+    <ImageView
+        android:id="@+id/titlebar_iv2_right"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/titlebar_iv1_right"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/titlebar_iv1_right"
+        android:src="@drawable/ic_action_share" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_agray" />
+
+</RelativeLayout>

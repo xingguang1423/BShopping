@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" 
+    android:background="@color/white"
+    >
+	
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:background="@color/bg_gray" />
+    
+    <TextView
+        android:layout_marginTop="15dip"
+        android:id="@+id/tv_footer_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/txt_gray"
+        android:text="愿意让我们更了解你吗" />
+
+    <TextView
+        android:id="@+id/tv_footer_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/txt_gray"
+        android:text="让美团的推荐更符合你的胃口" 
+        android:layout_marginBottom="5dip"
+        />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:gravity="center"
+        android:background="@color/bshoppingcolor"
+        android:textColor="@color/white"
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="8dip"
+        android:layout_marginBottom="15dip"
+        android:text="我的美团DNA" />
+
+</LinearLayout>

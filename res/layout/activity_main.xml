@@ -16,7 +16,6 @@
         android:layout_height="1px"
         android:background="@color/divider_gray" />
     
-    
 
     <include layout="@layout/include_bottom_tab"/>
     
