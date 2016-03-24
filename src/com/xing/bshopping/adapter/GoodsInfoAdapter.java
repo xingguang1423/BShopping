@@ -53,11 +53,9 @@ public class GoodsInfoAdapter extends BaseAdapter {
 			holder.home_iv_img = (ImageView) convertView.findViewById(R.id.home_iv_img);
 			holder.home_iv_nobooking_img = (ImageView) convertView.findViewById(R.id.home_iv_nobooking_img);
 			holder.home_tv_title_goodsName = (TextView) convertView.findViewById(R.id.home_tv_title_goodsName);
-			holder.home_tv_num = (TextView) convertView.findViewById(R.id.home_tv_num);
 			holder.home_tv_goodscontent = (TextView) convertView.findViewById(R.id.home_tv_goodscontent);
 			holder.home_goodsprice = (TextView) convertView.findViewById(R.id.home_goodsprice);
 			holder.home_tv_goodsshoprice = (TextView) convertView.findViewById(R.id.home_tv_goodsshoprice);
-			holder.home_tv_goodsshopnum = (TextView) convertView.findViewById(R.id.home_tv_goodsshopnum);
 			
 			convertView.setTag(holder);
 		}else{
@@ -66,7 +64,7 @@ public class GoodsInfoAdapter extends BaseAdapter {
 		
 		GoodsInfo goodsInfo = getItem(position);
 
-		if (goodsInfo.getIsGoodsBooking()) {  //true
+		if (goodsInfo.getIsGoodsBooking() == 1) {  //商品是否可预约 1是0否
 			holder.home_iv_nobooking_img.setVisibility(View.VISIBLE);
 		}else{
 			holder.home_iv_nobooking_img.setVisibility(View.GONE);
@@ -75,12 +73,10 @@ public class GoodsInfoAdapter extends BaseAdapter {
 		imageLoader.displayImage(goodsInfo.getGoodsImgUrl(),holder.home_iv_img);
 		
 		holder.home_tv_title_goodsName.setText(goodsInfo.getGoodsName());
-		holder.home_tv_num.setText("3.5km");
 		holder.home_tv_goodscontent.setText(goodsInfo.getGoodsContent());
 		
 		holder.home_goodsprice.setText(goodsInfo.getGoodsPrice()+"");
 		holder.home_tv_goodsshoprice.setText(goodsInfo.getGoodsShopPrice()+"");
-		holder.home_tv_goodsshopnum.setText("已售24680");
 		
 		return convertView;
 	}

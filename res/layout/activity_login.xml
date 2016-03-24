@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/searchbg"
+    tools:context="com.xing.bshopping.activity.LoginActivity" >
+
+    <RelativeLayout
+        android:id="@+id/login_rl_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/searchtitlebg" >
+
+        <TextView
+            android:id="@+id/login_tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/hotel_flight_icon_back"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="登录"
+            android:textSize="@dimen/txtsize_subhead" />
+
+        <TextView
+            android:id="@+id/login_tv_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="注册"
+            android:textSize="@dimen/activity_vertical_margin" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_ccc" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_rl_titlebar"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_login_username"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:hint="手机/邮箱/用户名"
+            android:paddingStart="10dp"
+            android:textSize="@dimen/home_txtmediumtitlesize" 
+            android:textColor="@color/bg_gray_ccc"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_ccc" />
+
+        <EditText
+            android:id="@+id/et_login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textColor="@color/bg_gray_ccc"
+            android:background="@color/white"
+            android:hint="密码"
+            android:paddingStart="10dp"
+            android:password="true"
+            android:textSize="@dimen/home_txtmediumtitlesize" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_loginbtn"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/home_txtpricetsize" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="找回密码"
+                android:textColor="@color/bshoppingcolor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="手机号快捷登录"
+                android:textColor="@color/bshoppingcolor" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

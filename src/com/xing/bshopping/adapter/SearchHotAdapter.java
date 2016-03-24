@@ -3,15 +3,13 @@ package com.xing.bshopping.adapter;
 import java.util.List;
 import java.util.Map;
 
-import com.xing.bshopping.R;
-import com.xing.bshopping.adapter.ClassesAdapter.ViewHolder;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.xing.bshopping.R;
 
 public class SearchHotAdapter extends BaseAdapter{
 	

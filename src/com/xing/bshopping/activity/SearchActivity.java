@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -14,13 +15,22 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.xing.bshopping.R;
 import com.xing.bshopping.adapter.ClassesPageAdapter;
+import com.xing.bshopping.adapter.GoodsInfoAdapter;
 import com.xing.bshopping.adapter.SearchHotAdapter;
+import com.xing.bshopping.dao.GoodsInfoDao;
+import com.xing.bshopping.entity.GoodsInfo;
+import com.xing.bshopping.utils.ToastUtils;
+import com.xing.bshopping.widget.MeiTuanListView;
 
 public class SearchActivity extends Activity {
 
@@ -29,6 +39,8 @@ public class SearchActivity extends Activity {
 	private LinearLayout ll_hotsearch_pager;
 	private LinearLayout ll_search_viewGroup;
 	private ImageView titlebar_iv_back;
+	private TextView search_btn;
+	private EditText titlebar_et_search;
 	
 	private List<Map<String, Object>> searchPagerList;
 
@@ -39,7 +51,13 @@ public class SearchActivity extends Activity {
 	private ImageView imageView;
 	private AtomicInteger atomicInteger = new AtomicInteger(0);
 	private List<View> gridViewlist = new ArrayList<View>();
-
+	
+	private GoodsInfoDao goodsInfoDao = new GoodsInfoDao(this);	
+	private static GoodsInfoAdapter goodsInfoAdapter;
+	private MeiTuanListView listview_Search;
+	private ImageView imageView_No_search;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,12 +72,57 @@ public class SearchActivity extends Activity {
 		ll_hotsearch_pager = (LinearLayout) findViewById(R.id.ll_hotsearch_pager);
 		ll_search_viewGroup = (LinearLayout) findViewById(R.id.ll_search_viewGroup);
 		titlebar_iv_back = (ImageView) findViewById(R.id.titlebar_iv_back);
+		search_btn = (TextView) findViewById(R.id.search_btn);
+		titlebar_et_search = (EditText) findViewById(R.id.titlebar_et_search);
+		listview_Search = (MeiTuanListView) findViewById(R.id.listview_Search);
+		imageView_No_search = (ImageView) findViewById(R.id.imageView_No_search);
+		
+		listview_Search.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				GoodsInfo goodsInfo = goodsInfoAdapter.getItem(position - 1);
+				Intent intent = new Intent(SearchActivity.this, TuanDailActivity.class);
+				intent.putExtra("goodsInfo", goodsInfo);
+				startActivity(intent);
+				
+				
+			}
+		});
+		
+		search_btn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String  ed_txt = titlebar_et_search.getText().toString().trim();
+//				ToastUtils.showToast(SearchActivity.this, ed_txt, 1);
+				List<GoodsInfo> goodsInfoList = goodsInfoDao.selectGoodsInfosByName(ed_txt);
+				
+				if (goodsInfoList != null && goodsInfoList.size() > 0) {
+					listview_Search.setVisibility(View.VISIBLE);
+					imageView_No_search.setVisibility(View.GONE);
+					goodsInfoAdapter = new GoodsInfoAdapter(SearchActivity.this, goodsInfoList);
+					listview_Search.setAdapter(goodsInfoAdapter);
+				}else {
+					listview_Search.setVisibility(View.GONE);
+					imageView_No_search.setVisibility(View.VISIBLE);
+				}
+				
+				
+				
+				
+			}
+		});
 		
 		titlebar_iv_back.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				finish();
+				
+//				ImageUtils.showImagePickDialog(SearchActivity.this);
 			}
 		});
 
@@ -87,8 +150,6 @@ public class SearchActivity extends Activity {
 		searchViewPager.setOnPageChangeListener(new AdPageChangeListener());
 
 	}
-
-	
 
 	/**
 	 * ViewPager 页面改变监听器
@@ -198,6 +259,19 @@ public class SearchActivity extends Activity {
 				gridView.setPadding(10, 10, 10, 10);
 				gridView.setHorizontalSpacing(15);
 				gridView.setVerticalSpacing(15);
+				
+				
+				gridView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						String rr_txt = searchPagerList.get(position).get("hotSearchTitle").toString();
+						ToastUtils.showToast(SearchActivity.this, rr_txt, 1);
+						titlebar_et_search.setText(rr_txt);
+					}
+					
+				});
 
 				List<Map<String, Object>> gridlist = new ArrayList<Map<String, Object>>();
 				for (int i = next; i < result; i++) {
@@ -224,6 +298,18 @@ public class SearchActivity extends Activity {
 				gridView.setHorizontalSpacing(15);
 				gridView.setVerticalSpacing(15);
 				
+				
+				gridView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						String rr_txt = searchPagerList.get(position+9).get("hotSearchTitle").toString();
+						ToastUtils.showToast(SearchActivity.this, rr_txt, 1);
+						titlebar_et_search.setText(rr_txt);
+					}
+				});
+
 
 				SearchHotAdapter myAdapter = new SearchHotAdapter(SearchActivity.this,
 						gridlist);

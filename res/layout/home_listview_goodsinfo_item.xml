@@ -16,7 +16,9 @@
             android:id="@+id/home_iv_img"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/bg_loading_poi_list" />
+             android:scaleType="centerCrop"
+            android:paddingBottom="10dp"
+            android:src="@drawable/review_list_thumbnail_none_b" />
 
         <ImageView
             android:id="@+id/home_iv_nobooking_img"
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/home_fl_img"
         android:layout_alignTop="@id/home_fl_img"
+        android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/home_fl_img" >
 
         <TextView
@@ -42,14 +45,6 @@
             android:text="五洲佳肴自助美食汇"
             android:textSize="@dimen/home_txttitlesize" />
 
-        <TextView
-            android:id="@+id/home_tv_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="3.0km"
-            android:textColor="@color/bg_gray_ccc"
-            android:textSize="@dimen/home_txtcontentsize" />
 
         <TextView
             android:id="@+id/home_tv_goodscontent"
@@ -57,70 +52,59 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/home_tv_title_goodsName"
             android:layout_marginTop="5dp"
-            android:text="【井岸镇】自助晚餐/韩式烤肉2选1，提供免费wifi，免预约"
             android:maxLines="2"
-            android:textColor="@color/bg_gray_ccc"
-            android:textSize="@dimen/home_txtmediumtitlesize" />
-
-          <RelativeLayout
-        android:id="@+id/ll_goodsinfo_listviewbottom"
-        android:layout_width="match_parent"
-        android:layout_below="@id/home_tv_goodscontent"
-        android:layout_height="wrap_content"
-        
-        >
-        
-        
-        <TextView
-            android:id="@+id/price_txt"
-           
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="￥"
-            android:textColor="@color/bshoppingcolor"
-            android:textSize="@dimen/home_txtmediumtitlesize" />
-
-        <TextView
-            android:id="@+id/home_goodsprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/price_txt"
-            android:text="44.8"
-            android:textColor="@color/bshoppingcolor"
-            android:textSize="@dimen/home_txtpricetsize" />
-
-        <TextView
-            android:id="@+id/home_tv_goodsshopricetxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/home_goodsprice"
-            android:text="门市价：￥"
+            android:text="【井岸镇】自助晚餐/韩式烤肉2选1，提供免费wifi，免预约"
             android:textColor="@color/bg_gray_ccc"
             android:textSize="@dimen/home_txtcontentsize" />
 
-        <TextView
-            android:id="@+id/home_tv_goodsshoprice"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/ll_goodsinfo_listviewbottom"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/home_tv_goodsshopricetxt"
-            android:text="58"
-            android:textColor="@color/bg_gray_ccc"
-            android:textSize="@dimen/home_txtcontentsize" />
+            android:layout_below="@id/home_tv_goodscontent" >
 
-        <TextView
-            android:id="@+id/home_tv_goodsshopnum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="已售24680"
-            android:textColor="@color/bg_gray_ccc"
-            android:textSize="@dimen/home_txtcontentsize" />
+            <TextView
+                android:id="@+id/price_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="￥"
+                android:textColor="@color/bshoppingcolor"
+                android:textSize="@dimen/home_txtmediumtitlesize" />
+
+            <TextView
+                android:id="@+id/home_goodsprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/price_txt"
+                android:text="44.8"
+                android:textColor="@color/bshoppingcolor"
+                android:textSize="@dimen/home_txtpricetsize" />
+
+          
+            <TextView
+                android:id="@+id/home_tv_goodsshoprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                 android:layout_alignParentRight="true"
+                android:text="58"
+                android:textColor="@color/bg_gray_ccc"
+                android:textSize="@dimen/home_txtcontentsize" />
+            
+              <TextView
+                android:id="@+id/home_tv_goodsshopricetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@id/home_tv_goodsshoprice"
+                android:text="门市价：￥"
+                android:textColor="@color/bg_gray_ccc"
+                android:textSize="@dimen/home_txtcontentsize" />
+            
+
         </RelativeLayout>
     </RelativeLayout>
 

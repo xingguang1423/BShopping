@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/txt_gray"
-        android:text="让美团的推荐更符合你的胃口" 
+        android:text="让高B格的推荐更符合你的胃口" 
         android:layout_marginBottom="5dip"
         />
 
@@ -39,6 +39,6 @@
         android:layout_marginLeft="8dip"
         android:layout_marginRight="8dip"
         android:layout_marginBottom="15dip"
-        android:text="我的美团DNA" />
+        android:text="我的高B格" />
 
 </LinearLayout>

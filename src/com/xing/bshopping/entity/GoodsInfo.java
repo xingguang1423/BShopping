@@ -7,16 +7,29 @@ package com.xing.bshopping.entity;
  * 
  */
 @SuppressWarnings("serial")
-public class GoodsInfo extends BaseEntity{
+public class GoodsInfo extends BaseEntity {
 
 	private int goodsId; // 唯一标志
 	private String goodsName; // 商品名称
 	private String goodsContent; // 商品内容
+	private String goodsValidity; // 商品的有效期
 	private float goodsPrice; // 商品价格
 	private float goodsShopPrice; // 门市价
-	private Boolean isGoodsBooking; //商品是否可预约
-	private String goodsImgUrl; //商品的图片地址
+	private int isGoodsBooking; // 商品是否可预约 1是0否
+	private String goodsImgUrl; // 商品的图片地址
+	private String goodsNotes; // 商品的购买须知
 	
+	
+	public String getGoodsValidity() {
+		return goodsValidity;
+	}
+
+	public void setGoodsValidity(String goodsValidity) {
+		this.goodsValidity = goodsValidity;
+	}
+
+	
+
 	public String getGoodsImgUrl() {
 		return goodsImgUrl;
 	}
@@ -25,44 +38,57 @@ public class GoodsInfo extends BaseEntity{
 		this.goodsImgUrl = goodsImgUrl;
 	}
 
-	public Boolean getIsGoodsBooking() {
-		return isGoodsBooking;
-	}
-
-	public void setIsGoodsBooking(Boolean isGoodsBooking) {
-		this.isGoodsBooking = isGoodsBooking;
-	}
-
 	public int getGoodsId() {
 		return goodsId;
 	}
 
-	
-
-	public GoodsInfo(int goodsId, String goodsName, String goodsContent,
-			float goodsPrice, float goodsShopPrice, Boolean isGoodsBooking,
-			String goodsImgUrl) {
-		super();
+	public void setGoodsId(int goodsId) {
 		this.goodsId = goodsId;
-		this.goodsName = goodsName;
-		this.goodsContent = goodsContent;
-		this.goodsPrice = goodsPrice;
-		this.goodsShopPrice = goodsShopPrice;
-		this.isGoodsBooking = isGoodsBooking;
-		this.goodsImgUrl = goodsImgUrl;
 	}
+
 
 	@Override
 	public String toString() {
 		return "GoodsInfo [goodsId=" + goodsId + ", goodsName=" + goodsName
-				+ ", goodsContent=" + goodsContent + ", goodsPrice="
-				+ goodsPrice + ", goodsShopPrice=" + goodsShopPrice
-				+ ", isGoodsBooking=" + isGoodsBooking + ", goodsImgUrl="
-				+ goodsImgUrl + "]";
+				+ ", goodsContent=" + goodsContent + ", goodsValidity="
+				+ goodsValidity + ", goodsPrice=" + goodsPrice
+				+ ", goodsShopPrice=" + goodsShopPrice + ", isGoodsBooking="
+				+ isGoodsBooking + ", goodsImgUrl=" + goodsImgUrl
+				+ ", goodsNotes=" + goodsNotes + "]";
 	}
 
-	public void setGoodsId(int goodsId) {
+
+	
+	public GoodsInfo(int goodsId, String goodsName, String goodsContent,
+			String goodsValidity, float goodsPrice, float goodsShopPrice,
+			int isGoodsBooking, String goodsImgUrl, String goodsNotes) {
+		super();
 		this.goodsId = goodsId;
+		this.goodsName = goodsName;
+		this.goodsContent = goodsContent;
+		this.goodsValidity = goodsValidity;
+		this.goodsPrice = goodsPrice;
+		this.goodsShopPrice = goodsShopPrice;
+		this.isGoodsBooking = isGoodsBooking;
+		this.goodsImgUrl = goodsImgUrl;
+		this.goodsNotes = goodsNotes;
+	}
+
+
+	public int getIsGoodsBooking() {
+		return isGoodsBooking;
+	}
+
+	public void setIsGoodsBooking(int isGoodsBooking) {
+		this.isGoodsBooking = isGoodsBooking;
+	}
+
+	public String getGoodsNotes() {
+		return goodsNotes;
+	}
+
+	public void setGoodsNotes(String goodsNotes) {
+		this.goodsNotes = goodsNotes;
 	}
 
 	public String getGoodsName() {
@@ -96,7 +122,6 @@ public class GoodsInfo extends BaseEntity{
 	public void setGoodsShopPrice(float goodsShopPrice) {
 		this.goodsShopPrice = goodsShopPrice;
 	}
-
 
 	public GoodsInfo() {
 		super();

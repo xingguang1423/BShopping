@@ -10,7 +10,7 @@ public class SplashActivity extends BaseActivity {
 
 	private static final int WHAT_INTENT2LOGIN = 1;
 	private static final int WHAT_INTENT2MAIN = 2;
-	private static final long SPLASH_DUR_TIME = 1000;
+	private static final long SPLASH_DUR_TIME = 3000;
 
 	private Handler handler = new Handler() {
 		@Override
@@ -22,6 +22,7 @@ public class SplashActivity extends BaseActivity {
 
 				break;
 			case WHAT_INTENT2MAIN:
+				finish();
 				intent2Activity(MainActivity.class);
 				break;
 			default:

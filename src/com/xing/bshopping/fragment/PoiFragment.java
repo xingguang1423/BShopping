@@ -9,16 +9,19 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
+import android.widget.Toast;
 
 import com.xing.bshopping.BaseFragment;
 import com.xing.bshopping.R;
-import com.xing.bshopping.adapter.GoodsInfoAdapter;
-import com.xing.bshopping.entity.GoodsInfo;
+import com.xing.bshopping.adapter.BusinessInfoAdapter;
+import com.xing.bshopping.entity.BusinessInfo;
 import com.xing.bshopping.utils.TitleBuilder;
+import com.xing.bshopping.widget.ExpandTabView;
 import com.xing.bshopping.widget.MeiTuanListView;
 import com.xing.bshopping.widget.MeiTuanListView.OnMeiTuanRefreshListener;
+import com.xing.bshopping.widget.ViewCity;
+import com.xing.bshopping.widget.ViewClassify;
+import com.xing.bshopping.widget.ViewSort;
 
 @SuppressLint("ResourceAsColor")
 public class PoiFragment extends BaseFragment implements
@@ -26,22 +29,31 @@ public class PoiFragment extends BaseFragment implements
 
 	private View view;
 
+	// ==================下拉刷新的动画==================
 	private static MeiTuanListView mListView;
+	
+	// =======================商家列表的listview======================
+	private static BusinessInfoAdapter bAdapter;
+	private ArrayList<BusinessInfo> businessInfos = new ArrayList<BusinessInfo>();
+	
+	//刷新
 	private final static int REFRESH_COMPLETE = 0;
-	private static GoodsInfoAdapter mAdapter;
-	private ArrayList<GoodsInfo> goodsInfos = new ArrayList<GoodsInfo>();
+	
+	
+	
 	/**
 	 * 判断是否到达底部
 	 */
-	private boolean isLastRow = false;
-
-	private static View footView;
-
-	private final static int REFRESH_FOOTER = 1;
+//	private boolean isLastRow = false;
+//
+//	private static View footView;
+//
+//	private final static int REFRESH_FOOTER = 1;
 	/**
 	 * mInterHandler运行在主线程，因为setOnRefreshComplete需要改变ui，必须在主线程去改变ui
 	 * 所以在handleMessage中调用mListView.setOnRefreshComplete();
 	 */
+	
 	private InterHandler mInterHandler = new InterHandler();
 
 	private static class InterHandler extends Handler {
@@ -51,13 +63,8 @@ public class PoiFragment extends BaseFragment implements
 
 			case REFRESH_COMPLETE:
 				mListView.setOnRefreshComplete();
-				mAdapter.notifyDataSetChanged();
+				bAdapter.notifyDataSetChanged();
 				mListView.setSelection(0);
-				break;
-			case REFRESH_FOOTER:
-				mListView.setOnRefreshComplete();
-				mAdapter.notifyDataSetChanged();
-				removeFootView(mListView, footView);
 				break;
 			default:
 				break;
@@ -65,77 +72,29 @@ public class PoiFragment extends BaseFragment implements
 		}
 	}
 
+	
+	
+	//===================二级菜单================
+	private ExpandTabView expandTabView;
+	private ArrayList<View> mViewArray = new ArrayList<View>();
+	private ViewClassify viewClassify;
+	private ViewCity viewCity;
+	private ViewSort viewRight;
+	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
 		initView();
+		
+		initVaule();
+		initListener();
 
-		mListView.setOnScrollListener(new OnScrollListener() {
-
-			/**
-			 * 正在滚动时回调，回调2-3次，手指没抛则回调2次，scrollState=2的这次不回调 回调顺序如下：
-			 * 第一次：scrollState = SCROLL_STATE_TOUCH_SCROLL(1)正在滚动
-			 * 第二次：scrollState = SCROLL_STATE_FLING(2)手指做了抛的动作（手指离开屏幕前，用力滑了一下）
-			 * 第三次：scrollState = SCROLL_STATE_IDLE(0) 停止滚动
-			 * 
-			 * 当屏幕停止滚动时为0；当屏幕滚动且用户使用的触碰或手指还在屏幕上时为1； 由于用户的操作，屏幕产生惯性滑动时为2
-			 */
-			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState) {
-				if (isLastRow
-						&& scrollState == OnScrollListener.SCROLL_STATE_IDLE) {
-					addFootView(mListView, footView);
-					loadData();
-					// 执行加载代码
-					isLastRow = false;
-				}
-			}
-
-			private void loadData() {
-				new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						try {
-							Thread.sleep(1000);
-							mAdapter.addItem(new GoodsInfo(2, "Nice1",
-									"Nice出品 ，必是良品", 50.2f, 65f, false,
-									"http://img4.imgtn.bdimg.com/it/u=289791729,3485011159&fm=21&gp=0.jpg"));
-							mAdapter.addItem(new GoodsInfo(2, "Nice2",
-									"Nice出品 ，必是良品", 50.2f, 65f, false,
-									"http://img4.imgtn.bdimg.com/it/u=289791729,3485011159&fm=21&gp=0.jpg"));
-							mAdapter.addItem(new GoodsInfo(2, "Nice3",
-									"Nice出品 ，必是良品", 50.2f, 65f, false,
-									"http://img4.imgtn.bdimg.com/it/u=289791729,3485011159&fm=21&gp=0.jpg"));
-							mAdapter.addItem(new GoodsInfo(2, "Nice4",
-									"Nice出品 ，必是良品", 50.2f, 65f, false,
-									"http://img4.imgtn.bdimg.com/it/u=289791729,3485011159&fm=21&gp=0.jpg"));
-							mInterHandler.sendEmptyMessage(REFRESH_FOOTER);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				}).start();
-			}
-
-			/**
-			 * 滚动的时候一直回调，直到停止滚动时才停止回调，单击时回调一次
-			 * firstVisibleItem:当前嫩看见的第一个列表项ID(从0开始,小半个也算)
-			 * visibleItemCount：当前能看见的列表项个数(小半个也算) totalItemCount：列表项总共数
-			 */
-			@Override
-			public void onScroll(AbsListView view, int firstVisibleItem,
-					int visibleItemCount, int totalItemCount) {
-				if (firstVisibleItem + visibleItemCount == totalItemCount
-						&& totalItemCount > 0) {
-					isLastRow = true;
-				}
-			}
-		});
 
 		return view;
 	}
+	
 
 	private void initView() {
 		view = View.inflate(activity, R.layout.frag_poi, null);
@@ -149,52 +108,45 @@ public class PoiFragment extends BaseFragment implements
 		.build();
 		
 
+		//===================二级菜单================
+		expandTabView = (ExpandTabView) view.findViewById(R.id.expandtab_view);
+		viewClassify = new ViewClassify(activity);
+		viewCity = new ViewCity(activity);
+		viewRight = new ViewSort(activity);
+		
+		
+		
+		//================================================
 		View headerView = View.inflate(activity,
 				R.layout.include_seller_header, null);
-
+		
+		
+		// =================下拉刷新的动画=================
 		mListView = (MeiTuanListView) view.findViewById(R.id.listview);
 
 		mListView.addHeaderView(headerView);
 
-		goodsInfos
-				.add(new GoodsInfo(1, "五洲佳肴自助美食汇",
-						"【井岸镇】自助晚餐/韩式烤肉2选1，提供免费wifi，免预约", 44.8f, 58f, true,
-						"http://p0.meituan.net/460.280/deal/0599c13a4d3e820f35cd7034f8640597100266.jpg"));
-		goodsInfos
-				.add(new GoodsInfo(
-						1,
-						"猫婆重庆小面",
-						"【兰埔】仅售9.9元！价值14元的超值单人套餐，提供免费WiFi，提供免费停车位。",
-						9.9f,
-						14f,
-						false,
-						"http://p0.meituan.net/460.280/deal/3fc3f41350ff2c1b03b14d8653cca7c794596.jpg@PC"));
-		goodsInfos
-				.add(new GoodsInfo(
-						1,
-						"CoCo都可",
-						"【井岸镇等】奶茶饮品6选1,免预约",
-						6.9f,
-						10f,
-						true,
-						"http://p0.meituan.net/460.280/deal/a1bc66c750059379788eb5b1c51ed02b45057.jpg@PC"));
-		goodsInfos
-				.add(new GoodsInfo(
-						1,
-						"金品轩猪肚鸡",
-						"【前山】胡椒猪肚鸡(中堡)1份,包间免费",
-						44.8f,
-						58f,
-						true,
-						"http://p1.meituan.net/460.280/deal/6498401e15db68705fb584375e71f86a83118.jpg@PC"));
+		businessInfos
+				.add(new BusinessInfo(1, "超好味餐厅",
+						"123456789 ","", "斗门区江湾中路223号", "快餐", 
+						"http://p0.meituan.net/460.280/deal/629b21db99e466eb8d04e34699d8f1b439327.jpg@PC_0_6_640_387a%7C388h_640w_2e_100q"));
+		businessInfos
+			.add(new BusinessInfo(2, "茶语小站",
+				"123456789 ","", "斗门区中兴中路219号", "甜点饮品", 
+				"http://p0.meituan.net/460.280/deal/bfcd43ccc8d0030f327df2e8ae8e0f3c102115.jpg@PC"));
 
-		mAdapter = new GoodsInfoAdapter(activity, goodsInfos);
+		businessInfos
+		.add(new BusinessInfo(3, "随变",
+			"123456789 ","", "香洲区吉大街道93号", "其他美食", 
+			"http://p0.meituan.net/460.280/deal/63bd580a0816cd6205007bf674f5e2e064656.jpg@PC"));
 
-		mListView.setAdapter(mAdapter);
+		bAdapter = new BusinessInfoAdapter(activity, businessInfos);
+
+		mListView.setAdapter(bAdapter);
 		mListView.setOnMeiTuanRefreshListener(this);
+		
+		
 
-		footView = View.inflate(activity, R.layout.include_footview_loading,
-				null);
 	}
 
 	@Override
@@ -204,12 +156,16 @@ public class PoiFragment extends BaseFragment implements
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(3000);
-					goodsInfos
-							.add(0,
-									new GoodsInfo(2, "Nice！", "Nice出品 ，必是良品",
-											50f, 65f, false,
-											"http://img4.imgtn.bdimg.com/it/u=289791729,3485011159&fm=21&gp=0.jpg"));
+					Thread.sleep(2000);
+					
+					bAdapter.addItem(new BusinessInfo(101, "老鸭粉丝馆",
+							"123456789","", "斗门区井岸镇江湾二路51号", "其他美食", 
+							"http://p1.meituan.net/460.280/deal/0c509884e84ec9a0ba56c1186fb3f81973346.jpg@PC"));
+					
+					bAdapter.addItem(new BusinessInfo(102, "哈宝三文鱼",
+							"123456789","", "斗门区南江路178号", "其他美食", 
+							"http://p1.meituan.net/320.0.a/deal/eca389a787b1434869457d59fb8a8f36125144.jpg"));
+					
 					mInterHandler.sendEmptyMessage(REFRESH_COMPLETE);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -218,13 +174,83 @@ public class PoiFragment extends BaseFragment implements
 		}).start();
 	}
 
-	private static void addFootView(MeiTuanListView mtlv, View footView) {
-		mtlv.addFooterView(footView);
-		mtlv.setSelection(mtlv.getCount() - 1);
+	
+private void initVaule() {
+		
+		mViewArray.add(viewClassify);
+		mViewArray.add(viewCity);
+		mViewArray.add(viewRight);
+		ArrayList<String> mTextArray = new ArrayList<String>();
+		mTextArray.add("全部分类");
+		mTextArray.add("全城");
+		mTextArray.add("智能排序");
+		
+		expandTabView.setValue(mTextArray, mViewArray);
+		expandTabView.setTitle(viewClassify.getShowText(), 0);
+		expandTabView.setTitle(viewCity.getShowText(), 1);
+		expandTabView.setTitle(viewRight.getShowText(), 2);
+		
 	}
 
-	private static void removeFootView(MeiTuanListView mtlv, View footView) {
-		mtlv.removeFooterView(footView);
+	private void initListener() {
+		
+		viewClassify.setOnSelectListener(new ViewClassify.OnSelectListener() {
+
+
+			@Override
+			public void getValue(String showText) {
+				onRefresh(viewClassify, showText);
+				
+			}
+		});
+		
+		viewCity.setOnSelectListener(new ViewCity.OnSelectListener() {
+			
+			@Override
+			public void getValue(String showText) {
+				
+				onRefresh(viewCity,showText);
+				
+			}
+		});
+		
+		viewRight.setOnSelectListener(new ViewSort.OnSelectListener() {
+
+			@Override
+			public void getValue(String distance, String showText) {
+				onRefresh(viewRight, showText);
+			}
+		});
+		
 	}
+	
+	private void onRefresh(View view, String showText) {
+		
+		expandTabView.onPressBack();
+		int position = getPositon(view);
+		if (position >= 0 && !expandTabView.getTitle(position).equals(showText)) {
+			expandTabView.setTitle(showText, position);
+		}
+		Toast.makeText(activity, showText, Toast.LENGTH_SHORT).show();
+
+	}
+	
+	private int getPositon(View tView) {
+		for (int i = 0; i < mViewArray.size(); i++) {
+			if (mViewArray.get(i) == tView) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+//	@Override
+//	public void onBackPressed() {
+//		
+//		if (!expandTabView.onPressBack()) {
+//			finish();
+//		}
+//		
+//	}
 
 }

@@ -11,9 +11,9 @@ public class ImageOptHelper {
 		DisplayImageOptions imgOptions = new DisplayImageOptions.Builder()
 				.cacheOnDisc().cacheInMemory()
 				.bitmapConfig(Bitmap.Config.RGB_565)
-				.showStubImage(R.drawable.bg_loading_poi_list)
-				.showImageForEmptyUri(R.drawable.bg_loading_poi_list)
-				.showImageOnFail(R.drawable.bg_loading_poi_list).build();
+				.showStubImage(R.drawable.review_list_thumbnail_none_b)
+				.showImageForEmptyUri(R.drawable.review_list_thumbnail_none_b)
+				.showImageOnFail(R.drawable.review_list_thumbnail_none_b).build();
 		return imgOptions;
 	}
 

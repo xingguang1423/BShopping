@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="100dp" >
 
-        <ImageView
+        <com.xing.bshopping.widget.CircleImageView
             android:id="@+id/iv_user_touphoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:src="@drawable/ic_account_avatar_default" />
@@ -24,7 +24,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/iv_user_touphoto"
-            android:text="xingguang0106"
+            android:text="点击登陆"
             android:textColor="@color/white" />
 
         <ImageView
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="美团券"
+                android:text="高B券"
                 android:textColor="@color/white" />
         </LinearLayout>
 

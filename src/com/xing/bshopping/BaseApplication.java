@@ -11,7 +11,6 @@ import com.xing.bshopping.utils.ImageOptHelper;
 
 public class BaseApplication extends Application {
 	
-	
 	@Override
 	public void onCreate() {
 		super.onCreate();

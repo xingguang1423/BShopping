@@ -12,89 +12,95 @@
         android:layout_height="1px"
         android:background="@color/bg_gray_dark" />
 
-    <LinearLayout
+<!--     <LinearLayout -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="40dip" -->
+<!--         android:background="@color/white" > -->
+
+<!--         <LinearLayout -->
+<!--             android:layout_width="0dp" -->
+<!--             android:layout_height="40dip" -->
+<!--             android:layout_weight="1" -->
+<!--             android:gravity="center" > -->
+
+<!--             <TextView -->
+<!--                 android:layout_width="0dp" -->
+<!--                 android:layout_height="40dip" -->
+<!--                 android:layout_weight="1" -->
+<!--                 android:gravity="center" -->
+<!--                 android:text="全部分类" -->
+<!--                 android:textColor="@color/black" /> -->
+
+<!--             <ImageView -->
+<!--                 android:layout_width="8dip" -->
+<!--                 android:layout_height="8dip" -->
+<!--                 android:layout_marginRight="8dip" -->
+<!--                 android:layout_marginTop="6dip" -->
+<!--                 android:src="@drawable/ic_global_arrow_corner_right" /> -->
+<!--         </LinearLayout> -->
+
+<!--         <View -->
+<!--             android:layout_width="1px" -->
+<!--             android:layout_height="30dip" -->
+<!--             android:layout_marginTop="5dip" -->
+<!--             android:background="@color/black" /> -->
+
+<!--         <LinearLayout -->
+<!--             android:layout_width="0dp" -->
+<!--             android:layout_height="40dip" -->
+<!--             android:layout_weight="1" -->
+<!--             android:gravity="center" > -->
+
+<!--             <TextView -->
+<!--                 android:layout_width="0dp" -->
+<!--                 android:layout_height="40dip" -->
+<!--                 android:layout_weight="1" -->
+<!--                 android:gravity="center" -->
+<!--                 android:text="全城" -->
+<!--                 android:textColor="@color/black" /> -->
+
+<!--             <ImageView -->
+<!--                 android:layout_width="8dip" -->
+<!--                 android:layout_height="8dip" -->
+<!--                 android:layout_marginRight="8dip" -->
+<!--                 android:layout_marginTop="6dip" -->
+<!--                 android:src="@drawable/ic_global_arrow_corner_right" /> -->
+<!--         </LinearLayout> -->
+
+<!--         <View -->
+<!--             android:layout_width="1px" -->
+<!--             android:layout_height="30dip" -->
+<!--             android:layout_marginTop="5dip" -->
+<!--             android:background="@color/black" /> -->
+
+<!--         <LinearLayout -->
+<!--             android:layout_width="0dp" -->
+<!--             android:layout_height="40dip" -->
+<!--             android:layout_weight="1" -->
+<!--             android:gravity="center" > -->
+
+<!--             <TextView -->
+<!--                 android:layout_width="0dp" -->
+<!--                 android:layout_height="40dip" -->
+<!--                 android:layout_weight="1" -->
+<!--                 android:gravity="center" -->
+<!--                 android:text="智能排序" -->
+<!--                 android:textColor="@color/black" /> -->
+
+<!--             <ImageView -->
+<!--                 android:layout_width="8dip" -->
+<!--                 android:layout_height="8dip" -->
+<!--                 android:layout_marginRight="8dip" -->
+<!--                 android:layout_marginTop="6dip" -->
+<!--                 android:src="@drawable/ic_global_arrow_corner_right" /> -->
+<!--         </LinearLayout> -->
+<!--     </LinearLayout> -->
+
+  <com.xing.bshopping.widget.ExpandTabView
+        android:id="@+id/expandtab_view"
         android:layout_width="match_parent"
-        android:layout_height="40dip"
-        android:background="@color/white" >
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="40dip"
-            android:layout_weight="1"
-            android:gravity="center" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="40dip"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="全部分类"
-                android:textColor="@color/black" />
-
-            <ImageView
-                android:layout_width="8dip"
-                android:layout_height="8dip"
-                android:layout_marginRight="8dip"
-                android:layout_marginTop="6dip"
-                android:src="@drawable/ic_global_arrow_corner_right" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1px"
-            android:layout_height="30dip"
-            android:layout_marginTop="5dip"
-            android:background="@color/black" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="40dip"
-            android:layout_weight="1"
-            android:gravity="center" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="40dip"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="全城"
-                android:textColor="@color/black" />
-
-            <ImageView
-                android:layout_width="8dip"
-                android:layout_height="8dip"
-                android:layout_marginRight="8dip"
-                android:layout_marginTop="6dip"
-                android:src="@drawable/ic_global_arrow_corner_right" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1px"
-            android:layout_height="30dip"
-            android:layout_marginTop="5dip"
-            android:background="@color/black" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="40dip"
-            android:layout_weight="1"
-            android:gravity="center" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="40dip"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="智能排序"
-                android:textColor="@color/black" />
-
-            <ImageView
-                android:layout_width="8dip"
-                android:layout_height="8dip"
-                android:layout_marginRight="8dip"
-                android:layout_marginTop="6dip"
-                android:src="@drawable/ic_global_arrow_corner_right" />
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
 
     <com.xing.bshopping.widget.MeiTuanListView
         android:id="@+id/listview"

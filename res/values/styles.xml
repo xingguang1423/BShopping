@@ -59,5 +59,10 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@color/white</item>
     </style>
+    
+    <style name="PopupWindowAnimation">  
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>  
+        <item name="android:windowExitAnimation">@anim/pophidden_anim</item>  
+    </style>
 
 </resources>

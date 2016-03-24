@@ -63,7 +63,7 @@ public class MoreFragment extends BaseFragment {
 	private void setItem() {
 
 		moreItems.add(new MoreItem(true, "非wifi下使用省流量模式", R.drawable.ic_global_uikit_switch_off, ""));
-		moreItems.add(new MoreItem(false, "邀请好友使用美团", R.drawable.ic_webview_bar_forward_normal, ""));
+		moreItems.add(new MoreItem(false, "邀请好友使用高B", R.drawable.ic_webview_bar_forward_normal, ""));
 		moreItems.add(new MoreItem(false, "字号大小", R.drawable.ic_webview_bar_forward_normal, "中字号(默认)"));
 		moreItems.add(new MoreItem(false, "清空缓存", R.drawable.ic_webview_bar_forward_normal, "0K"));
 		
@@ -72,7 +72,7 @@ public class MoreFragment extends BaseFragment {
 		moreItems.add(new MoreItem(false, "问卷调查", R.drawable.ic_webview_bar_forward_normal, ""));
 		moreItems.add(new MoreItem(false, "支付帮助", R.drawable.ic_webview_bar_forward_normal, ""));
 		moreItems.add(new MoreItem(false, "检查更新", R.drawable.ic_webview_bar_forward_normal, "好赞，当前已是最新版本"));
-		moreItems.add(new MoreItem(false, "关于美团", R.drawable.ic_webview_bar_forward_normal, ""));
+		moreItems.add(new MoreItem(false, "关于高B", R.drawable.ic_webview_bar_forward_normal, ""));
 		moreItems.add(new MoreItem(false, "加入我们", R.drawable.ic_webview_bar_forward_normal, ""));
 		moreItems.add(new MoreItem(false, "诊断网络", R.drawable.ic_webview_bar_forward_normal, ""));
 		moreItems.add(new MoreItem(false, "版权信息", R.drawable.ic_webview_bar_forward_normal, ""));
