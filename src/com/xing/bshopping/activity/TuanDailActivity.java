@@ -68,6 +68,15 @@ public class TuanDailActivity extends Activity implements OnScrollListener {
 	}
 
 	private void initView() {
+		
+		titlebar_tv_left = (TextView) findViewById(R.id.titlebar_tv_left);
+		titlebar_tv_left.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 
 		iv_tuandail_head_bgimg = (ImageView) findViewById(R.id.iv_tuandail_head_bgimg);
 		tuandail_iv_nobooking_img = (ImageView) findViewById(R.id.tuandail_iv_nobooking_img);
@@ -99,14 +108,7 @@ public class TuanDailActivity extends Activity implements OnScrollListener {
 			}
 		});
 		
-		titlebar_tv_left = (TextView) findViewById(R.id.titlebar_tv_left);
-		titlebar_tv_left.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
+	
 		tuandail_buy_goodsPrice = (TextView) findViewById(R.id.tuandail_buy_goodsPrice);
 		tuandail_buy_goodsShopPrice = (TextView) findViewById(R.id.tuandail_buy_goodsShopPrice);
 		tuandail_buy_goodsPrice_top = (TextView) findViewById(R.id.tuandail_buy_goodsPrice_top);

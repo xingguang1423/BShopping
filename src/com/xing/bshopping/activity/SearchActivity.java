@@ -230,7 +230,7 @@ public class SearchActivity extends Activity {
 	private void getSearchView() {
 		
 		String[] titleView = {
-				"自助餐", "回家湘", "华莱士",       "汉堡王", "真功夫", "必胜客",      "厨秀才","蛋糕","马得利",
+				"酒店", "锅", "烧烤",      		 "历险游", "自驾游", "必胜客",      "厨秀才","蛋糕","马得利",
 				"牛扒", "诚丰影城", "肯得基",        "火锅", "服务", "足疗按摩",        "机票", "外卖","KTV"
 		};
 		
@@ -239,7 +239,6 @@ public class SearchActivity extends Activity {
 			mapView.put("hotSearchTitle", titleView[i]);
 			searchPagerList.add(mapView);
 		}
-		
 		
 		getGridView();
 	}

@@ -58,7 +58,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/hotel_bg_map_tip"
-            android:text="立即入住"
+            android:text="立即抢购"
             android:textColor="@color/white" />
     </RelativeLayout>
 

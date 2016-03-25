@@ -10,6 +10,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:name=".BaseApplication"
@@ -20,12 +26,12 @@
 
         <!--
  设置windowSoftInputMode属性为adjustUnspecified|stateHidden 
- EditText默认不弹出软件键盘
+ EditText默认不弹出软件键盘
         -->
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
-            <intent-filter>
+              <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -51,6 +57,19 @@
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.zxing.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="com.xing.bshopping.activity.PoiDailActivity"
+             android:theme="@android:style/Theme.Light.NoTitleBar"
+             >
+           
         </activity>
     </application>
 

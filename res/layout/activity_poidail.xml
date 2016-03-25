@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_tuandail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_user_gray"
+    android:orientation="vertical" >
+
+    <!-- 商家详细titlebar 开始 -->
+
+    <RelativeLayout
+        android:id="@+id/rl_poidail_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/searchtitlebg" >
+
+        <ImageView
+            android:id="@+id/titlebar_iv_poidail_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_webview_bar_back_normal" />
+
+        <ImageView
+            android:id="@+id/titlebar_iv_poidail_right"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_action_favorite_off" />
+
+        <ImageView
+            android:id="@+id/titlebar_iv2_poidail_right"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignTop="@+id/titlebar_iv_poidail_right"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/titlebar_iv_poidail_right"
+            android:src="@drawable/ic_action_share" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_agray" />
+    </RelativeLayout>
+
+    <!-- 商家详细titlebar 结束 -->
+
+    <com.xing.bshopping.widget.TuanDailScrollView
+        android:id="@+id/poidail_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                android:weightSum="4" >
+
+                <ImageView
+                    android:id="@+id/iv_poidail_bgimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tuandailbg" />
+            </RelativeLayout>
+
+            <!-- bName	商家名  bType	商家类型 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_poidail_bName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="神火源烤肉"
+                        android:textColor="@color/bg_three"
+                        android:textSize="@dimen/home_txtpricetsize" />
+
+                    <TextView
+                        android:id="@+id/tv_poidail_bType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="商家类型"
+                        android:textColor="@color/bg_gray_ccc"
+                        android:textSize="@dimen/home_txtmediumtitlesize" />
+
+                    <Button
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/hotel_bg_map_tip"
+                        android:text="立即抢购"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divider_gray" />
+
+            <!-- bPhone	商家电话   bAddress	商家地址 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_poidail_bAddress"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:maxLines="2"
+                        android:text="神火源烤肉神火源烤肉神火源烤肉神火源烤肉神火源烤肉神火源烤肉神火源烤肉神火源烤肉神火源烤肉"
+                        android:textColor="@color/bg_three"
+                        android:textSize="@dimen/home_txtmediumtitlesize" />
+
+                  
+                    <ImageView
+                        android:id="@+id/iv_poidail_bPhone"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_poi_detail_phone" />
+                    
+                      <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_toLeftOf="@id/iv_poidail_bPhone"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/choosebar_line_poi" />
+                    
+                    
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_user_gray"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp"
+                        android:gravity="center_vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="商家简介"
+                            android:textColor="@color/bg_gray_ccc"
+                            android:textSize="@dimen/home_txtmediumtitlesize" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/divider_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical" >
+
+                    <!-- 商家明细 -->
+
+                    <TextView
+                        android:id="@+id/poidail_content_bContentInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="商家明细 商家明细 商家明细"
+                         />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.xing.bshopping.widget.TuanDailScrollView>
+
+</LinearLayout>

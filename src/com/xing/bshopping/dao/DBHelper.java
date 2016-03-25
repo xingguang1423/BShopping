@@ -1,6 +1,5 @@
 package com.xing.bshopping.dao;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -29,6 +28,16 @@ public class DBHelper extends SQLiteOpenHelper {
 					"goodsNotes text"+
 					");";
 		
+		String sql_BusinessInfo = "create table t_businessInfo("+
+				"bId integer primary key, "+
+				"bName text not null, "+
+				"bPhone text, "+
+				"bContentInfo text, "+
+				"bAddress text, "+
+				"bType text, "+
+				"bImgUrl text "+
+				");";
+		
 		String sql_CustomInfo = "create table t_customInfo( "+
 				"cId integer primary key, "+
 				"cName text not null, "+
@@ -37,11 +46,9 @@ public class DBHelper extends SQLiteOpenHelper {
 				"cImgUrl text "+
 				");";
 		
-		
-		
 		db.execSQL(sql_GoodsInfo);
+		db.execSQL(sql_BusinessInfo);
 		db.execSQL(sql_CustomInfo);
-		
 		
 	}
 
@@ -53,8 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
 //			db.execSQL("alter table CharacterTab add internal_id integer");
 			
 //		}
-		
-		
 		
 	}
 

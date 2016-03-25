@@ -63,11 +63,11 @@ public class CustomInfoDao {
 		database.close();
 	}
 	
-	public CustomInfo loginCustomInfo(String cName, String cPassword) {
+	public CustomInfo loginCustomInfo(String cPhone, String cPassword) {
 		database = helper.getWritableDatabase();
 		CustomInfo customInfo = null;
 
-		Cursor cursor = database.rawQuery("select cId,cName,cPassword,cPhone,cImgUrl from t_customInfo where cName='"+cName + "' and cPassword='"+cPassword+"'", null);
+		Cursor cursor = database.rawQuery("select cId,cName,cPassword,cPhone,cImgUrl from t_customInfo where cPhone='"+cPhone + "' and cPassword='"+cPassword+"'", null);
 		
 		while (cursor.moveToNext()) {
 
@@ -98,7 +98,7 @@ public class CustomInfoDao {
 		//update(表的名称, ContentValues值集合, where关键字后的内容, ?参数)
 		ContentValues values = new ContentValues();
 		values.put("cImgUrl", customInfo.getcImgUrl());
-		database.update("t_customInfo", values, "cName=?", new String[]{customInfo.getcName()});
+		database.update("t_customInfo", values, "cPhone=?", new String[]{customInfo.getcPhone()});
 		
 		database.close();
 	}

@@ -46,17 +46,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:textSize="@dimen/home_txttitlesize" 
+            android:layout_marginBottom="10dp"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:text="斗门区井岸镇中兴中路222号东北(南国4楼)"
-            android:textColor="@color/bg_gray_ccc"
-            android:textSize="@dimen/home_txtmediumtitlesize" />
         
     </LinearLayout>
 

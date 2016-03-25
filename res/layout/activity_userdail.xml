@@ -39,8 +39,8 @@
 
                     <com.xing.bshopping.widget.CircleImageView
                         android:id="@+id/iv_userdail_touphoto"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="40dp"
                         android:scaleType="centerCrop"

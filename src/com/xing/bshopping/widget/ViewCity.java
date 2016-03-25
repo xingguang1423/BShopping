@@ -108,9 +108,6 @@ public class ViewCity extends LinearLayout implements ViewBaseAction {
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("井岸镇");
 						break;
@@ -126,9 +123,6 @@ public class ViewCity extends LinearLayout implements ViewBaseAction {
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("吉大");
 						break;
@@ -173,9 +167,6 @@ public class ViewCity extends LinearLayout implements ViewBaseAction {
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("红旗镇");
 						break;
@@ -189,6 +180,15 @@ public class ViewCity extends LinearLayout implements ViewBaseAction {
 				break;
 			case 4:
 				groups.add("香洲其它");
+				for(int j=0;j<1;j++){
+					switch (j) {
+					case 0:
+						tItem.add("香洲其它");
+						break;
+					default:
+						break;
+					}
+				}
 				break;
 
 			default:

@@ -109,7 +109,34 @@ public class GoodsInfoDao {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param 通过id查询GoodsInfo
+	 * @return
+	 */
+	public GoodsInfo selectGoodsInfosById(Integer goodsId){
+		database = helper.getWritableDatabase();
+		GoodsInfo goodsInfo = null;
+		
+		
+		Cursor cursor = database.rawQuery("select * from t_goodsInfo t where t.goodsId = "+goodsId, null);
+		while( cursor.moveToNext() ){
+		
+			goodsInfo = new GoodsInfo();
+			goodsInfo.setGoodsId(cursor.getInt(cursor.getColumnIndex("goodsId")));
+			goodsInfo.setGoodsName(cursor.getString(cursor.getColumnIndex("goodsName")));
+			goodsInfo.setGoodsContent(cursor.getString(cursor.getColumnIndex("goodsContent")));
+			goodsInfo.setGoodsPrice(cursor.getFloat(cursor.getColumnIndex("goodsPrice")));
+			goodsInfo.setGoodsShopPrice(cursor.getFloat(cursor.getColumnIndex("goodsShopPrice")));
+			goodsInfo.setIsGoodsBooking(cursor.getInt(cursor.getColumnIndex("isGoodsBooking")));
+			goodsInfo.setGoodsImgUrl(cursor.getString(cursor.getColumnIndex("goodsImgUrl")));
+			goodsInfo.setGoodsNotes(cursor.getString(cursor.getColumnIndex("goodsNotes")));
+			
+		}
+		cursor.close();
+		database.close();
+		return goodsInfo;
+	}
 	
 	
 }

@@ -91,6 +91,16 @@ for(int j=0;j<15;j++){
 				break;
 			case 1:
 				groups.add("电影");
+				for(int j=0;j<1;j++){
+					switch (j) {
+					case 0:
+						tItem.add("电影");
+						break;
+					default:
+						break;
+					}
+				}
+				
 				break;
 			case 2:
 				groups.add("美食");
@@ -98,9 +108,6 @@ for(int j=0;j<15;j++){
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("火锅");
 						break;
@@ -145,16 +152,21 @@ for(int j=0;j<15;j++){
 				break;
 			case 3:
 				groups.add("摄影写真");
-				
+				for(int j=0;j<1;j++){
+					switch (j) {
+					case 0:
+						tItem.add("摄影写真");
+						break;
+					default:
+						break;
+					}
+				}
 				break;
 			case 4:
 				groups.add("酒店");
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("经济型酒店");
 						break;
@@ -177,9 +189,6 @@ for(int j=0;j<15;j++){
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("KTV");
 						break;
@@ -205,15 +214,21 @@ for(int j=0;j<15;j++){
 				break;
 			case 6:
 				groups.add("汽车服务");
+				for(int j=0;j<1;j++){
+					switch (j) {
+					case 0:
+						tItem.add("汽车服务");
+						break;
+					default:
+						break;
+					}
+				}
 				break;
 			case 7:
 				groups.add("生活服务");
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("母婴亲子");
 						break;
@@ -243,9 +258,6 @@ for(int j=0;j<15;j++){
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("美发");
 						break;
@@ -268,9 +280,6 @@ for(int j=0;j<15;j++){
 				for(int j=0;j<15;j++){
 					
 					switch (j) {
-					case 0:
-						tItem.add("全部");
-						break;
 					case 1:
 						tItem.add("本地/周边游");
 						break;

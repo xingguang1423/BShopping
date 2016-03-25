@@ -47,6 +47,7 @@
     <color name="bshoppingbottom">#F5F5F5</color>
     <color name="search_gv_bg">#F4F4F4</color>
       <color name="bg_ccc">#ccc</color>
+      <color name="bg_three">#333</color>
       
        <color name="popup_main_background">#b0000000</color>
     <color name="choose_eara_item_press_color">#f4f4f4</color>
